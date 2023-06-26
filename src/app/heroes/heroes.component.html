@@ -1,4 +1,10 @@
-<h2>{{objHero.name |uppercase }} Details</h2>
-
-<div><span>id:</span>{{objHero.id}}</div>
-<div><span>name:</span>{{objHero.name}}</div>
+<!-- ngif neu selected hero bang null thi k hien thi con khac null thi hien thi -->
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <button type="button" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+    </li>
+</ul>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
